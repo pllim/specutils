@@ -19,7 +19,7 @@ UNCERTAINTY_TYPE_MAPPING = {
 
 class Spectrum1DType(Converter):
     """ASDF tag implementation used to serialize/deserialize Spectrum1D objects."""
-    tags = ["tag:astropy.org:astropy/spectra/spectrum1d-*"]
+    tags = ["tag:astropy.org:specutils/spectra/spectrum1d-*"]
     types = ["specutils.spectra.spectrum1d.Spectrum1D"]
 
     def to_yaml_tree(self, obj, tag, ctx):
@@ -51,7 +51,7 @@ class Spectrum1DType(Converter):
 
 class SpectrumListType(Converter):
     """ASDF tag implementation used to serialize/deserialize SpectrumList objects."""
-    tags = ["tag:astropy.org:astropy/spectra/spectrum_list-*"]
+    tags = ["tag:astropy.org:specutils/spectra/spectrum_list-*"]
     types = ["specutils.spectra.spectrum_list.SpectrumList"]
 
     def to_yaml_tree(self, obj, tag, ctx):
