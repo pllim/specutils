@@ -5,9 +5,9 @@ __all__ = []
 
 def get_extensions():
     from asdf.extension import ManifestExtension
-    from specutils.io.asdf.tags.spectra import Spectrum1DType, SpectrumListType
+    from specutils.io.asdf.tags.spectra import SpectralAxisConverter, Spectrum1DType, SpectrumListType
 
-    SPECUTILS_TRANSFORM_CONVERTERS = [Spectrum1DType(), SpectrumListType()]
+    SPECUTILS_TRANSFORM_CONVERTERS = [SpectralAxisConverter(), Spectrum1DType(), SpectrumListType()]
 
     # The order here is important; asdf will prefer to use extensions
     # that occur earlier in the list.

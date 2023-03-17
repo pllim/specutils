@@ -2,6 +2,7 @@
 Contains classes that serialize spectral data types into ASDF representations.
 """
 from asdf.extension import Converter
+from asdf_astropy.converters import SpectralCoordConverter
 from astropy.nddata import (StdDevUncertainty, VarianceUncertainty,
                             InverseVariance, UnknownUncertainty)
 
@@ -14,6 +15,12 @@ UNCERTAINTY_TYPE_MAPPING = {
     'var': VarianceUncertainty,
     'ivar': InverseVariance,
     'unknown': UnknownUncertainty}
+
+
+class SpectralAxisConverter(SpectralCoordConverter):
+    """ASDF tag implementation used to serialize/deserialize SpectralAxis objects."""
+    tags = ["tag:astropy.org:specutils/spectra/spectral_axis-*"]
+    types = ["specutils.spectra.spectral_axis.SpectralAxis"]
 
 
 class Spectrum1DType(Converter):
