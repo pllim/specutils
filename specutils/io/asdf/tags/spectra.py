@@ -22,6 +22,11 @@ class SpectralAxisConverter(SpectralCoordConverter):
     tags = ["tag:astropy.org:specutils/spectra/spectral_axis-*"]
     types = ["specutils.spectra.spectral_axis.SpectralAxis"]
 
+    def from_yaml_tree(self, node, tag, ctx):
+        from specutils.spectra.spectral_axis import SpectralAxis
+
+        return SpectralAxis(super().from_yaml_tree(node, tag, ctx))
+
 
 class Spectrum1DType(Converter):
     """ASDF tag implementation used to serialize/deserialize Spectrum1D objects."""
