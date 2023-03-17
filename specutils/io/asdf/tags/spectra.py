@@ -8,7 +8,7 @@ from astropy.nddata import (StdDevUncertainty, VarianceUncertainty,
 
 from specutils.spectra import Spectrum1D, SpectrumList
 
-__all__ = ['Spectrum1DType', 'SpectrumListType']
+__all__ = ['Spectrum1DConverter', 'SpectrumListConverter']
 
 UNCERTAINTY_TYPE_MAPPING = {
     'std': StdDevUncertainty,
@@ -18,7 +18,7 @@ UNCERTAINTY_TYPE_MAPPING = {
 
 
 class SpectralAxisConverter(SpectralCoordConverter):
-    """ASDF tag implementation used to serialize/deserialize SpectralAxis objects."""
+    """ASDF converter to serialize/deserialize SpectralAxis objects."""
     tags = ["tag:astropy.org:specutils/spectra/spectral_axis-*"]
     types = ["specutils.spectra.spectral_axis.SpectralAxis"]
 
@@ -28,8 +28,8 @@ class SpectralAxisConverter(SpectralCoordConverter):
         return SpectralAxis(super().from_yaml_tree(node, tag, ctx))
 
 
-class Spectrum1DType(Converter):
-    """ASDF tag implementation used to serialize/deserialize Spectrum1D objects."""
+class Spectrum1DConverter(Converter):
+    """ASDF converter to serialize/deserialize Spectrum1D objects."""
     tags = ["tag:astropy.org:specutils/spectra/spectrum1d-*"]
     types = ["specutils.spectra.spectrum1d.Spectrum1D"]
 
@@ -60,8 +60,8 @@ class Spectrum1DType(Converter):
         return Spectrum1D(flux=flux, spectral_axis=spectral_axis, uncertainty=uncertainty)
 
 
-class SpectrumListType(Converter):
-    """ASDF tag implementation used to serialize/deserialize SpectrumList objects."""
+class SpectrumListConverter(Converter):
+    """ASDF converter used to serialize/deserialize SpectrumList objects."""
     tags = ["tag:astropy.org:specutils/spectra/spectrum_list-*"]
     types = ["specutils.spectra.spectrum_list.SpectrumList"]
 
