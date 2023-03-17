@@ -5,7 +5,7 @@ __all__ = []
 
 def get_extensions():
     from asdf.extension import ManifestExtension
-    from specutils.io.asdf.tags.spectra import SpectralAxisConverter, Spectrum1DConverter, SpectrumListConverter
+    from specutils.io.asdf.spectra import SpectralAxisConverter, Spectrum1DConverter, SpectrumListConverter
 
     SPECUTILS_TRANSFORM_CONVERTERS = [SpectralAxisConverter(), Spectrum1DConverter(), SpectrumListConverter()]
 

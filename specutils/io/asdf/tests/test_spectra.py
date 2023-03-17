@@ -6,7 +6,7 @@ from astropy.coordinates import FK5
 from astropy.nddata import StdDevUncertainty
 
 from specutils import Spectrum1D, SpectrumList, SpectralAxis
-from specutils.io.asdf.tags.tests.helpers import (
+from specutils.io.asdf.helpers import (
     assert_spectrum1d_equal, assert_spectrumlist_equal, assert_spectral_axis_equal)
 
 
